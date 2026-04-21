@@ -1,5 +1,5 @@
 
-#include <Wifi.h>
+#include <WiFi.h>
 #include <WebServer.h>
 
 const char* ssid = "23_F";
@@ -40,11 +40,11 @@ void setup() {
 
   Serial.begin(115200);
   delay(400);
-  Wifi.begin(ssid, password);
+  WiFi.begin(ssid, password);
 
   Serial.print("Conectando al Wifi ...");
 
-  while(Wifi.status() != WL_CONNECTED){
+  while(WiFi.status() != WL_CONNECTED){
 
     delay(500);
     Serial.print(".");
@@ -52,7 +52,7 @@ void setup() {
   } 
   Serial.println("\nConexión Exitosa");
   Serial.println("IP del Servidor: ");
-  Serial.println(Wifi.localIP());
+  Serial.println(WiFi.localIP());
 
   server.on("/", HandleRoot);
   server.on("/on", handleOn);
